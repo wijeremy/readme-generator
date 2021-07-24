@@ -46,19 +46,19 @@ function renderLicenseText(license, year, name) {
   if (license === "BSD"){
       fs.readFile('./templates/bsdLicense.txt', 'utf8', (error, data) => {if (error){console.error(error)} else{
         let text = replaceString(data, "[year]", year)
-        text = replaceString(data, "[full name]", name)
+        text = replaceString(text, "[fullname]", name)
         writeToFile('license.txt', text)
       }});
     } else if (license === "MIT"){
       fs.readFile('./templates/mitLicense.txt', 'utf8', (error, data) => {if (error){console.error(error)} else{
         let text = replaceString(data, "[year]", year)
-        text = replaceString(data, "[full name]", name)
+        text = replaceString(text, "[fullname]", name)
         writeToFile('license.txt', text)
       }});
     } else if (license === "GNU"){
       fs.readFile('./templates/gnuLicense.txt', 'utf8', (error, data) => {if (error){console.error(error)} else{
         let text = replaceString(data, "[year]", year)
-        text = replaceString(data, "[full name]", name)
+        text = replaceString(text, "[fullname]", name)
         writeToFile('license.txt', text)
       }});
     }
