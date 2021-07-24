@@ -43,36 +43,33 @@ function renderLicenseLink(license) {
 }
 
 function renderLicenseText(license, year, name) {
-  switch (license) {
-    case 'BSD':
+  if (license === "BSD"){
       fs.readFile('./templates/bsdLicense.txt', 'utf8', (error, data) => {if (error){console.error(error)} else{
         let text = replaceString(data, "[year]", year)
         text = replaceString(data, "[full name]", name)
         writeToFile('license.txt', text)
       }});
-    case 'MIT':
-      fs.readFile('./templates/bsdLicense.txt', 'utf8', (error, data) => {if (error){console.error(error)} else{
+    } else if (license === "MIT"){
+      fs.readFile('./templates/mitLicense.txt', 'utf8', (error, data) => {if (error){console.error(error)} else{
         let text = replaceString(data, "[year]", year)
         text = replaceString(data, "[full name]", name)
         writeToFile('license.txt', text)
       }});
-    case 'GNU':
-      fs.readFile('./templates/bsdLicense.txt', 'utf8', (error, data) => {if (error){console.error(error)} else{
+    } else if (license === "GNU"){
+      fs.readFile('./templates/gnuLicense.txt', 'utf8', (error, data) => {if (error){console.error(error)} else{
         let text = replaceString(data, "[year]", year)
         text = replaceString(data, "[full name]", name)
         writeToFile('license.txt', text)
       }});
-    default:
-      return "";
-  }
-}
+    }
+};
 // TODO: Create a function to generate markdown for README
 // Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
 //The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
 function generateMarkdown(data) {
   let badge = renderLicenseBadge(data.license);
-  let link = renderLicenseLink(data.license)
-  let licenseText = renderLicenseText(data.license)
+  let link = renderLicenseLink(data.license);
+  renderLicenseText(data.license, data.year, data.name)
   return ` 
 # ${data.title}
 ${badge}
