@@ -1,6 +1,10 @@
  
 # Read Me Generator
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+[View my github repository for this app](https://github.com/wijeremy/readme-generator)
+
+[View the demo here on youtube](https://www.youtube.com/watch?v=2Da5cZl1AyU&ab_channel=HermeticHippie)
 ## Description
 I am making this app because I need a quick and easy way to write README files.
 It solves writing lazy, unorganized and unprofessional READMEs
